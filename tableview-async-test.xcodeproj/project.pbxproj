@@ -15,6 +15,7 @@
 		387F02611B58E6FD00344BF1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387F025F1B58E6FD00344BF1 /* LaunchScreen.xib */; };
 		387F026D1B58E6FD00344BF1 /* tableview_async_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F026C1B58E6FD00344BF1 /* tableview_async_testTests.m */; };
 		387F02791B5904FC00344BF1 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F02781B5904FC00344BF1 /* PersonModel.m */; };
+		387F027C1B59082100344BF1 /* PersonDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F027B1B59082100344BF1 /* PersonDataProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		387F026C1B58E6FD00344BF1 /* tableview_async_testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tableview_async_testTests.m; sourceTree = "<group>"; };
 		387F02771B5904FC00344BF1 /* PersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonModel.h; path = models/PersonModel.h; sourceTree = "<group>"; };
 		387F02781B5904FC00344BF1 /* PersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonModel.m; path = models/PersonModel.m; sourceTree = "<group>"; };
+		387F027A1B59082100344BF1 /* PersonDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDataProvider.h; sourceTree = "<group>"; };
+		387F027B1B59082100344BF1 /* PersonDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDataProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				387F025D1B58E6FD00344BF1 /* Images.xcassets */,
 				387F025F1B58E6FD00344BF1 /* LaunchScreen.xib */,
 				387F02501B58E6FD00344BF1 /* Supporting Files */,
+				387F027A1B59082100344BF1 /* PersonDataProvider.h */,
+				387F027B1B59082100344BF1 /* PersonDataProvider.m */,
 			);
 			path = "tableview-async-test";
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 				387F02591B58E6FD00344BF1 /* ViewController.m in Sources */,
 				387F02561B58E6FD00344BF1 /* AppDelegate.m in Sources */,
 				387F02531B58E6FD00344BF1 /* main.m in Sources */,
+				387F027C1B59082100344BF1 /* PersonDataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

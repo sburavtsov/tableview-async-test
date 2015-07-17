@@ -6,9 +6,12 @@
 //  Copyright (c) 2015 Sergey Buravtsov. All rights reserved.
 //
 
+#import "PersonDataProvider.h"
 #import "ViewController.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) NSArray *personModels;
 
 @end
 
@@ -17,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.personModels = [PersonDataProvider getPersonModelsArray:100];
+
 }
 
 - (void)didReceiveMemoryWarning {
