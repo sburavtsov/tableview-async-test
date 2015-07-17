@@ -10,8 +10,8 @@
 
 @interface PersonModel : NSObject
 
-@property (nonatomic, assign) NSUInteger personId;
-@property (nonatomic, strong) NSString * personName;
-@property (nonatomic, strong) NSString * personCountry;
+@property (atomic, assign) NSUInteger personId;
+@property (atomic, strong) NSString * personName;
+@property (atomic, strong) NSString * personCountry;
 
 @end

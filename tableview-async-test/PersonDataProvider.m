@@ -32,7 +32,7 @@
         
         PersonModel *personModel = [[PersonModel alloc] init];
         personModel.personId = i;
-        personModel.personName = [NSString stringWithFormat:@"Name-%ld", i];
+        personModel.personName = [NSString stringWithFormat:@"Name-%tu", i];
         personModel.personCountry = [countriesArray objectAtIndex:arc4random() % countriesArray.count];
         
         [result addObject:personModel];

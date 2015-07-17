@@ -13,12 +13,14 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) NSArray *personModelsArray;
-@property (nonatomic, strong) NSArray *modelIndexesArray;
+@property (atomic, strong) NSArray *personModelsArray;
+@property (atomic, strong) NSArray *modelIndexesArray;
+@property (atomic, assign) BOOL doAsyncUpdates;
 
 @end
 
-const NSUInteger personsSampleCount = 100;
+const NSUInteger personsSampleCount = 20;
+const NSUInteger personsRandomChangePerBlock = 4;
 
 @implementation ViewController
 
@@ -37,7 +39,9 @@ const NSUInteger personsSampleCount = 100;
     
     self.modelIndexesArray = indexesArray;
     
-    [self.asyncUpdatesSwitch setOn:NO animated:NO];
+    self.doAsyncUpdates = NO;
+    
+    [self.asyncUpdatesSwitch setOn:self.doAsyncUpdates animated:NO];
     
     self.tableView.dataSource = self;
     [self.tableView reloadData];
@@ -52,7 +56,41 @@ const NSUInteger personsSampleCount = 100;
 
 
 - (IBAction)asyncUpdatesDidChange:(UISwitch *)sender {
-    
+
+    self.doAsyncUpdates = sender.isOn;
+
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            
+        while (self.doAsyncUpdates) {
+
+            NSMutableArray *indexesToUpdate = [NSMutableArray arrayWithCapacity:personsRandomChangePerBlock];
+            
+            while (personsRandomChangePerBlock > indexesToUpdate.count) {
+
+                NSUInteger index = arc4random() % self.modelIndexesArray.count;
+
+                NSUInteger modelIndex = [[self.modelIndexesArray objectAtIndex:index] unsignedIntegerValue];
+                
+                NSIndexPath *indexPathToUpdate = [NSIndexPath indexPathForRow:index inSection:0];
+                
+                if (! [indexesToUpdate containsObject:indexPathToUpdate]) {
+                    
+                    [indexesToUpdate addObject:indexPathToUpdate];
+
+                    PersonModel *model = [self.personModelsArray objectAtIndex:modelIndex];
+                    
+                    model.personName = [NSString stringWithFormat:@"Name: %tu", model.personId + arc4random() % 100];
+                }
+            }
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+
+                [self.tableView beginUpdates];
+                [self.tableView reloadRowsAtIndexPaths:indexesToUpdate withRowAnimation:UITableViewRowAnimationNone];
+                [self.tableView endUpdates];
+            });
+        } // while doAsyncUpdates
+    });
 }
 
 
@@ -74,10 +112,11 @@ const NSUInteger personsSampleCount = 100;
     
     cell.personName.text = model.personName;
     cell.personCountry.text = model.personCountry;
-    cell.personID.text = [NSString stringWithFormat:@"%ld", model.personId];
+    cell.personID.text = [NSString stringWithFormat:@"%tu", model.personId];
 
     return cell;
 }
 
 
 @end
+
