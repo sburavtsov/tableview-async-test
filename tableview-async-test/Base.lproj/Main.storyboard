@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -43,19 +44,43 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwd-Bi-pkH">
-                                                    <rect key="frame" x="8" y="11" width="42" height="24"/>
+                                                    <rect key="frame" x="8" y="8" width="161" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvz-n2-8lx">
+                                                    <rect key="frame" x="177" y="11" width="321" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dp-jy-mOy">
+                                                    <rect key="frame" x="506" y="8" width="54" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="mwd-Bi-pkH" firstAttribute="leading" secondItem="O90-h5-BfU" secondAttribute="leadingMargin" id="Swk-mw-Ms5"/>
-                                                <constraint firstItem="mwd-Bi-pkH" firstAttribute="top" secondItem="O90-h5-BfU" secondAttribute="topMargin" constant="3" id="VY3-Jm-s7M"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="mwd-Bi-pkH" secondAttribute="bottom" id="zlP-Fw-3ap"/>
+                                                <constraint firstItem="mwd-Bi-pkH" firstAttribute="top" secondItem="O90-h5-BfU" secondAttribute="topMargin" id="1bO-jY-ZVJ"/>
+                                                <constraint firstAttribute="centerY" secondItem="fvz-n2-8lx" secondAttribute="centerY" id="2N9-PF-85u"/>
+                                                <constraint firstItem="4dp-jy-mOy" firstAttribute="leading" secondItem="fvz-n2-8lx" secondAttribute="trailing" constant="8" id="3zq-Ia-ABl"/>
+                                                <constraint firstItem="fvz-n2-8lx" firstAttribute="leading" secondItem="mwd-Bi-pkH" secondAttribute="trailing" constant="8" id="8y7-Id-mlf"/>
+                                                <constraint firstItem="4dp-jy-mOy" firstAttribute="bottom" secondItem="O90-h5-BfU" secondAttribute="bottomMargin" id="AVW-I3-hb7"/>
+                                                <constraint firstItem="mwd-Bi-pkH" firstAttribute="leading" secondItem="O90-h5-BfU" secondAttribute="leadingMargin" id="D66-4a-eDT"/>
+                                                <constraint firstItem="mwd-Bi-pkH" firstAttribute="width" secondItem="fvz-n2-8lx" secondAttribute="width" multiplier="1:2" id="Fv2-Zm-OIm"/>
+                                                <constraint firstItem="mwd-Bi-pkH" firstAttribute="bottom" secondItem="O90-h5-BfU" secondAttribute="bottomMargin" id="JyQ-tU-gJp"/>
+                                                <constraint firstAttribute="centerY" secondItem="4dp-jy-mOy" secondAttribute="centerY" id="R9A-b5-x4P"/>
+                                                <constraint firstAttribute="centerY" secondItem="mwd-Bi-pkH" secondAttribute="centerY" id="Uol-Zu-e2b"/>
+                                                <constraint firstItem="mwd-Bi-pkH" firstAttribute="width" secondItem="4dp-jy-mOy" secondAttribute="width" multiplier="3:1" id="VVi-EN-LUF"/>
+                                                <constraint firstItem="4dp-jy-mOy" firstAttribute="top" secondItem="O90-h5-BfU" secondAttribute="topMargin" id="tdk-oB-lQU"/>
+                                                <constraint firstItem="4dp-jy-mOy" firstAttribute="trailing" secondItem="O90-h5-BfU" secondAttribute="trailingMargin" id="yCC-PX-fBe"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="personCountry" destination="fvz-n2-8lx" id="nZr-zF-pZp"/>
+                                            <outlet property="personID" destination="4dp-jy-mOy" id="SqR-4O-imm"/>
                                             <outlet property="personName" destination="mwd-Bi-pkH" id="2FI-C2-Tsb"/>
                                         </connections>
                                     </tableViewCell>

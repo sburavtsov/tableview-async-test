@@ -11,6 +11,8 @@
 @interface PersonDataTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *personName;
+@property (weak, nonatomic) IBOutlet UILabel *personCountry;
+@property (weak, nonatomic) IBOutlet UILabel *personID;
 
 + (NSString *)cellReuseIdentifier;
 

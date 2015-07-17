@@ -71,6 +71,8 @@ const NSUInteger personsSampleCount = 100;
     PersonModel *model = [self.personModelsArray objectAtIndex:modelIndex.unsignedIntegerValue];
     
     cell.personName.text = model.personName;
+    cell.personCountry.text = model.personCountry;
+    cell.personID.text = [NSString stringWithFormat:@"%ld", model.personId];
 
     return cell;
 }
