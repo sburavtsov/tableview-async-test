@@ -28,6 +28,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A5q-eO-rgm">
                                 <rect key="frame" x="535" y="32" width="51" height="31"/>
+                                <connections>
+                                    <action selector="asyncUpdatesDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Eq1-QB-mhO"/>
+                                </connections>
                             </switch>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="V1n-wk-E4x">
                                 <rect key="frame" x="16" y="76" width="568" height="516"/>
@@ -47,6 +50,10 @@
                             <constraint firstItem="A5q-eO-rgm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="12" id="zyz-Ey-7Ft"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="asyncUpdatesSwitch" destination="A5q-eO-rgm" id="kBe-nZ-wgH"/>
+                        <outlet property="tableView" destination="V1n-wk-E4x" id="hWr-ch-jWD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

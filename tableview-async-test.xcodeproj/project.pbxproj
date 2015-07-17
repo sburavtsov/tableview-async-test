@@ -14,6 +14,7 @@
 		387F025E1B58E6FD00344BF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 387F025D1B58E6FD00344BF1 /* Images.xcassets */; };
 		387F02611B58E6FD00344BF1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387F025F1B58E6FD00344BF1 /* LaunchScreen.xib */; };
 		387F026D1B58E6FD00344BF1 /* tableview_async_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F026C1B58E6FD00344BF1 /* tableview_async_testTests.m */; };
+		387F02791B5904FC00344BF1 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F02781B5904FC00344BF1 /* PersonModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		387F02661B58E6FD00344BF1 /* tableview-async-testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tableview-async-testTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		387F026B1B58E6FD00344BF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		387F026C1B58E6FD00344BF1 /* tableview_async_testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tableview_async_testTests.m; sourceTree = "<group>"; };
+		387F02771B5904FC00344BF1 /* PersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonModel.h; path = models/PersonModel.h; sourceTree = "<group>"; };
+		387F02781B5904FC00344BF1 /* PersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonModel.m; path = models/PersonModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		387F024F1B58E6FD00344BF1 /* tableview-async-test */ = {
 			isa = PBXGroup;
 			children = (
+				387F02761B5904C800344BF1 /* models */,
 				387F02541B58E6FD00344BF1 /* AppDelegate.h */,
 				387F02551B58E6FD00344BF1 /* AppDelegate.m */,
 				387F02571B58E6FD00344BF1 /* ViewController.h */,
@@ -117,6 +121,15 @@
 				387F026B1B58E6FD00344BF1 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		387F02761B5904C800344BF1 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				387F02771B5904FC00344BF1 /* PersonModel.h */,
+				387F02781B5904FC00344BF1 /* PersonModel.m */,
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				387F02791B5904FC00344BF1 /* PersonModel.m in Sources */,
 				387F02591B58E6FD00344BF1 /* ViewController.m in Sources */,
 				387F02561B58E6FD00344BF1 /* AppDelegate.m in Sources */,
 				387F02531B58E6FD00344BF1 /* main.m in Sources */,
@@ -418,6 +432,7 @@
 				387F02721B58E6FD00344BF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		387F02731B58E6FD00344BF1 /* Build configuration list for PBXNativeTarget "tableview-async-testTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +441,7 @@
 				387F02751B58E6FD00344BF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
