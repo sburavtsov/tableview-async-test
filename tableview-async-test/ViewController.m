@@ -37,6 +37,8 @@ const NSUInteger personsSampleCount = 100;
     
     self.modelIndexesArray = indexesArray;
     
+    [self.asyncUpdatesSwitch setOn:NO animated:NO];
+    
     self.tableView.dataSource = self;
     [self.tableView reloadData];
 }
