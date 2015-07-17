@@ -10,4 +10,8 @@
 
 @implementation PersonModel
 
+@property (nonatomic, assign) NSUInteger personId;
+@property (nonatomic, strong) NSString * personName;
+@property (nonatomic, strong) NSString * personCountry;
+
 @end
