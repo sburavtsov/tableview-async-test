@@ -16,6 +16,7 @@
 		387F026D1B58E6FD00344BF1 /* tableview_async_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F026C1B58E6FD00344BF1 /* tableview_async_testTests.m */; };
 		387F02791B5904FC00344BF1 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F02781B5904FC00344BF1 /* PersonModel.m */; };
 		387F027C1B59082100344BF1 /* PersonDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F027B1B59082100344BF1 /* PersonDataProvider.m */; };
+		387F02801B590FA700344BF1 /* PersonDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F027F1B590FA700344BF1 /* PersonDataTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		387F02781B5904FC00344BF1 /* PersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonModel.m; path = models/PersonModel.m; sourceTree = "<group>"; };
 		387F027A1B59082100344BF1 /* PersonDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDataProvider.h; sourceTree = "<group>"; };
 		387F027B1B59082100344BF1 /* PersonDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDataProvider.m; sourceTree = "<group>"; };
+		387F027E1B590FA700344BF1 /* PersonDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonDataTableViewCell.h; path = views/PersonDataTableViewCell.h; sourceTree = "<group>"; };
+		387F027F1B590FA700344BF1 /* PersonDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonDataTableViewCell.m; path = views/PersonDataTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,7 @@
 		387F024F1B58E6FD00344BF1 /* tableview-async-test */ = {
 			isa = PBXGroup;
 			children = (
+				387F027D1B590F5B00344BF1 /* views */,
 				387F02761B5904C800344BF1 /* models */,
 				387F02541B58E6FD00344BF1 /* AppDelegate.h */,
 				387F02551B58E6FD00344BF1 /* AppDelegate.m */,
@@ -135,6 +139,15 @@
 				387F02781B5904FC00344BF1 /* PersonModel.m */,
 			);
 			name = models;
+			sourceTree = "<group>";
+		};
+		387F027D1B590F5B00344BF1 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				387F027E1B590FA700344BF1 /* PersonDataTableViewCell.h */,
+				387F027F1B590FA700344BF1 /* PersonDataTableViewCell.m */,
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +254,7 @@
 				387F02591B58E6FD00344BF1 /* ViewController.m in Sources */,
 				387F02561B58E6FD00344BF1 /* AppDelegate.m in Sources */,
 				387F02531B58E6FD00344BF1 /* main.m in Sources */,
+				387F02801B590FA700344BF1 /* PersonDataTableViewCell.m in Sources */,
 				387F027C1B59082100344BF1 /* PersonDataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
