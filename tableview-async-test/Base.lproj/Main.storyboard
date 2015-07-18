@@ -20,10 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable async cell updates" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FK2-wr-DDU">
-                                <rect key="frame" x="16" y="28" width="211" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="gjL-3F-0O6"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="37" width="511" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -34,8 +31,8 @@
                                     <action selector="asyncUpdatesDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Eq1-QB-mhO"/>
                                 </connections>
                             </switch>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="V1n-wk-E4x">
-                                <rect key="frame" x="16" y="76" width="568" height="516"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="V1n-wk-E4x">
+                                <rect key="frame" x="16" y="274" width="568" height="318"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonDataTableViewCell" id="PH4-IV-Rjh" customClass="PersonDataTableViewCell">
@@ -87,27 +84,57 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Index to update:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ea0-cs-GwZ">
+                                <rect key="frame" x="16" y="75" width="132" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="GIn-Eq-fSq">
+                                <rect key="frame" x="204" y="71" width="382" height="31"/>
+                                <connections>
+                                    <action selector="indexToUpdateDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="wJu-pD-BLi"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7a-42-YxF">
+                                <rect key="frame" x="156" y="75" width="42" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="JwF-N2-Mbc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FK2-wr-DDU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8BK-CL-Y87"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="V1n-wk-E4x" secondAttribute="trailing" id="9kk-7w-NHd"/>
-                            <constraint firstItem="A5q-eO-rgm" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="TYj-ST-nI2"/>
-                            <constraint firstItem="FK2-wr-DDU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="hB0-To-bbc"/>
-                            <constraint firstItem="A5q-eO-rgm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="12" id="lBG-s3-e7o"/>
-                            <constraint firstItem="V1n-wk-E4x" firstAttribute="top" secondItem="FK2-wr-DDU" secondAttribute="bottom" constant="8" id="nxn-ha-ILu"/>
-                            <constraint firstItem="V1n-wk-E4x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="oBN-EG-K55"/>
-                            <constraint firstItem="V1n-wk-E4x" firstAttribute="top" secondItem="A5q-eO-rgm" secondAttribute="bottom" constant="13" id="tBK-zI-7gP"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="V1n-wk-E4x" secondAttribute="bottom" constant="8" id="uh7-V6-z2a"/>
+                            <constraint firstItem="GIn-Eq-fSq" firstAttribute="top" secondItem="A5q-eO-rgm" secondAttribute="bottom" constant="8" id="28Z-Ig-cVR"/>
+                            <constraint firstItem="Ea0-cs-GwZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7mH-20-JIL"/>
+                            <constraint firstItem="W7a-42-YxF" firstAttribute="leading" secondItem="Ea0-cs-GwZ" secondAttribute="trailing" constant="8" id="Dsa-5B-2Wd"/>
+                            <constraint firstItem="W7a-42-YxF" firstAttribute="top" secondItem="FK2-wr-DDU" secondAttribute="bottom" constant="16" id="Jow-eR-OAM"/>
+                            <constraint firstItem="GIn-Eq-fSq" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="VGp-8h-0jW"/>
+                            <constraint firstItem="GIn-Eq-fSq" firstAttribute="leading" secondItem="W7a-42-YxF" secondAttribute="trailing" constant="8" id="WyL-Td-veI"/>
+                            <constraint firstItem="Ea0-cs-GwZ" firstAttribute="top" secondItem="FK2-wr-DDU" secondAttribute="bottom" constant="16" id="YNC-Iw-mli"/>
+                            <constraint firstItem="FK2-wr-DDU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fbA-Gk-WZD"/>
+                            <constraint firstItem="W7a-42-YxF" firstAttribute="leading" secondItem="Ea0-cs-GwZ" secondAttribute="trailing" constant="8" id="gm0-gS-ejY"/>
+                            <constraint firstItem="A5q-eO-rgm" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="hFB-na-WO9"/>
+                            <constraint firstItem="A5q-eO-rgm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="12" id="p8B-IY-Cll"/>
+                            <constraint firstItem="A5q-eO-rgm" firstAttribute="leading" secondItem="FK2-wr-DDU" secondAttribute="trailing" constant="8" id="qbE-rF-peB"/>
+                            <constraint firstItem="A5q-eO-rgm" firstAttribute="leading" secondItem="FK2-wr-DDU" secondAttribute="trailing" constant="8" id="xuK-OS-p28"/>
+                            <constraint firstItem="FK2-wr-DDU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="17" id="zBC-ht-H6X"/>
+                            <constraint firstItem="GIn-Eq-fSq" firstAttribute="leading" secondItem="W7a-42-YxF" secondAttribute="trailing" constant="8" id="zas-E4-Pii"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="asyncUpdatesSwitch" destination="A5q-eO-rgm" id="kBe-nZ-wgH"/>
+                        <outlet property="indexToUpdate" destination="W7a-42-YxF" id="fT9-GW-4sm"/>
+                        <outlet property="indexToUpdateSlider" destination="GIn-Eq-fSq" id="NDj-BY-AU3"/>
                         <outlet property="tableView" destination="V1n-wk-E4x" id="hWr-ch-jWD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="905" y="706"/>
         </scene>
     </scenes>
 </document>

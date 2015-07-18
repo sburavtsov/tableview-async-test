@@ -16,6 +16,7 @@
 @property (atomic, strong) NSArray *personModelsArray;
 @property (atomic, strong) NSArray *modelIndexesArray;
 @property (atomic, assign) BOOL doAsyncUpdates;
+@property (atomic, assign) NSUInteger indexToChange;
 
 @end
 
@@ -25,6 +26,7 @@ const NSUInteger personsRandomChangePerBlock = 4;
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -34,12 +36,19 @@ const NSUInteger personsRandomChangePerBlock = 4;
     
     for (NSUInteger i = 0; i < personsSampleCount; i++) {
      
-        [indexesArray addObject: [NSNumber numberWithInt:arc4random() % personsSampleCount]];
+        NSUInteger index = arc4random() % personsSampleCount;
+        [indexesArray addObject: [NSNumber numberWithUnsignedInteger:index]];
+        [indexesArray addObject: [NSNumber numberWithUnsignedInteger:index]];
     }
     
     self.modelIndexesArray = indexesArray;
     
     self.doAsyncUpdates = NO;
+    
+    self.indexToUpdateSlider.minimumValue = 0;
+    self.indexToUpdateSlider.maximumValue = personsSampleCount - 1;
+    self.indexToUpdateSlider.continuous = YES;
+    self.indexToUpdateSlider.value = 0.0f;
     
     [self.asyncUpdatesSwitch setOn:self.doAsyncUpdates animated:NO];
     
@@ -52,8 +61,13 @@ const NSUInteger personsRandomChangePerBlock = 4;
     // Dispose of any resources that can be recreated.
 }
 
-
-
+- (IBAction)indexToUpdateDidChange:(UISlider *)sender {
+    
+    NSUInteger index = (NSUInteger)(sender.value + 0.5);
+    [sender setValue:index animated:NO];
+    self.indexToChange = index;
+    self.indexToUpdate.text = [NSString stringWithFormat:@"%tu", index];
+}
 
 - (IBAction)asyncUpdatesDidChange:(UISwitch *)sender {
 
@@ -65,24 +79,23 @@ const NSUInteger personsRandomChangePerBlock = 4;
 
             NSMutableArray *indexesToUpdate = [NSMutableArray arrayWithCapacity:personsRandomChangePerBlock];
             
-            while (personsRandomChangePerBlock > indexesToUpdate.count) {
-
-                NSUInteger index = arc4random() % self.modelIndexesArray.count;
-
-                NSUInteger modelIndex = [[self.modelIndexesArray objectAtIndex:index] unsignedIntegerValue];
+            NSUInteger modelIndex = self.indexToChange;
+        
+            NSIndexSet *indexSet = [self.modelIndexesArray indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
                 
-                NSIndexPath *indexPathToUpdate = [NSIndexPath indexPathForRow:index inSection:0];
-                
-                if (! [indexesToUpdate containsObject:indexPathToUpdate]) {
-                    
-                    [indexesToUpdate addObject:indexPathToUpdate];
+                return (modelIndex == [(NSNumber *)obj unsignedIntegerValue]);
+            }];
+        
+            [indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
 
-                    PersonModel *model = [self.personModelsArray objectAtIndex:modelIndex];
-                    
-                    model.personName = [NSString stringWithFormat:@"Name: %tu", model.personId + arc4random() % 100];
-                }
-            }
+                NSIndexPath *indexPathToUpdate = [NSIndexPath indexPathForRow:idx inSection:0];
+                [indexesToUpdate addObject:indexPathToUpdate];
+            }];
             
+            PersonModel *model = [self.personModelsArray objectAtIndex:modelIndex];
+            
+            model.personName = [NSString stringWithFormat:@"Name: %tu", model.personId + arc4random() % 100];
+
             dispatch_sync(dispatch_get_main_queue(), ^{
 
                 [self.tableView beginUpdates];

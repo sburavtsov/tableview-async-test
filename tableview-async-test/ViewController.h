@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISwitch *asyncUpdatesSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *indexToUpdate;
+@property (weak, nonatomic) IBOutlet UISlider *indexToUpdateSlider;
 
 @end
 
