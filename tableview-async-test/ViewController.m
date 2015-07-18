@@ -16,6 +16,7 @@
 @property (atomic, strong) NSArray *personModelsArray;
 @property (atomic, strong) NSArray *modelIndexesArray;
 @property (atomic, assign) BOOL doAsyncUpdates;
+@property (atomic, assign) BOOL manualIndexToChange;
 @property (atomic, assign) NSUInteger indexToChange;
 
 @end
@@ -49,6 +50,9 @@ const NSUInteger personsRandomChangePerBlock = 4;
     self.indexToUpdateSlider.maximumValue = personsSampleCount - 1;
     self.indexToUpdateSlider.continuous = YES;
     self.indexToUpdateSlider.value = 0.0f;
+    self.indexToUpdate.text = @"0";
+    
+    self.manualIndexToChange = YES;
     
     [self.asyncUpdatesSwitch setOn:self.doAsyncUpdates animated:NO];
     
@@ -59,6 +63,11 @@ const NSUInteger personsRandomChangePerBlock = 4;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)manualIndexToUpdateDidChange:(UISwitch *)sender {
+    
+    self.manualIndexToChange = sender.isOn;
 }
 
 - (IBAction)indexToUpdateDidChange:(UISlider *)sender {
@@ -79,7 +88,7 @@ const NSUInteger personsRandomChangePerBlock = 4;
 
             NSMutableArray *indexesToUpdate = [NSMutableArray arrayWithCapacity:personsRandomChangePerBlock];
             
-            NSUInteger modelIndex = self.indexToChange;
+            NSUInteger modelIndex = self.manualIndexToChange ? self.indexToChange : arc4random() % self.personModelsArray.count;
         
             NSIndexSet *indexSet = [self.modelIndexesArray indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
                 
